@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		"noEmitOnError": true,
+		"pretty": true,
+		"preserveConstEnums": true,
+		"sourceMap": true,
+		"newLine": "LF",
+		"target": "es5",
+		"lib": ["es6"],
+		"noUnusedLocals": true,
+		"module": "commonjs",
+		"outDir": "./.obj"
+	}
+}

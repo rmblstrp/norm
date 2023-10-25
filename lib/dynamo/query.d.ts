@@ -1,0 +1,33 @@
+import { QueryInput, ScanInput } from "aws-sdk/clients/dynamodb";
+import { DatabaseSettingsHelper } from "../configuration";
+import { Criteria } from "../criteria";
+import { EntityDescriptor } from "../entity";
+export declare class DynamoQuery {
+    protected criteria: Criteria;
+    protected table: string;
+    protected descriptor: EntityDescriptor;
+    protected settings: DatabaseSettingsHelper;
+    protected query: QueryInput;
+    protected attributeCounter: number;
+    protected generateQuery: boolean;
+    protected constructor(criteria: Criteria, settings: DatabaseSettingsHelper);
+    static generate(criteria: Criteria, settings: DatabaseSettingsHelper): QueryInput & ScanInput;
+    private static getEvaluationExpression(evaluation);
+    private static getComparisonExpression(comparison);
+    private static createExpression(parameter, attribute);
+    make(): QueryInput & ScanInput;
+    protected qualify(prefix: string, name: string): string;
+    private tableName(schema, tableName);
+    private columnPath(name, prefix);
+    private qualifyAttribute(column);
+    private applyLimit();
+    private applyOrder();
+    private applyParameters(parameters, descriptor, prefix?);
+    private buildWhereParameters(whereParameters, descriptor, prefix);
+    private isPrimaryKey(parameter);
+    private applyIndex(key, descriptor);
+    private applyWhereValue(parameter, descriptor, prefix);
+    private buildExpression(parameter, prefix);
+    private applyWhereGroup(parameter, descriptor, prefix);
+    private applyJoins(parentDescriptor, joinParameters, classType, prefix?);
+}

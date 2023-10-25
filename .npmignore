@@ -1,0 +1,8 @@
+src
+test
+.travis.yml
+gulpfile.js
+tsconfig.json
+tslint.json
+.idea
+.vscode
